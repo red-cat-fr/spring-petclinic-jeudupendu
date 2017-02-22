@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,11 +23,19 @@ public class JeuDuPenduWeb {
 	@Autowired
 	Partie game ;
 
+    @ModelAttribute("player")
+	public PlayerWeb getPlayerWeb(){
+		return player ;
+	}
+
 	@RequestMapping("")
 	public String index( ModelMap model)
 	{
-		model.put("player", player);
+		// Remplacé par @ModelAttribute("player")
+		//model.put("player", player);
+		
 		model.put("game", game );
+		
 		return TPL_FOLDER + "/jeuDuPendu" ;
 	}
 
