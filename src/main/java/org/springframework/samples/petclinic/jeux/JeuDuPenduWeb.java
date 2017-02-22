@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import v2.Partie;
+
 @Controller
 @Scope("request")
 @RequestMapping("/jeux/jeudupendu")
@@ -17,11 +19,14 @@ public class JeuDuPenduWeb {
 
 	@Autowired
 	PlayerWeb player ;
+	@Autowired
+	Partie game ;
 
 	@RequestMapping("")
 	public String index( ModelMap model)
 	{
 		model.put("player", player);
+		model.put("game", game );
 		return TPL_FOLDER + "/jeuDuPendu" ;
 	}
 
@@ -30,6 +35,14 @@ public class JeuDuPenduWeb {
 	{
 		player.setName(name);
 		
+		return "redirect:/jeux/jeudupendu" ;
+	}
+
+	@RequestMapping(value="/game", method=RequestMethod.POST)
+	public String gameNew( ModelMap model )
+	{
+		game.newPlay(player);
+
 		return "redirect:/jeux/jeudupendu" ;
 	}
 

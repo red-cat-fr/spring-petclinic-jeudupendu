@@ -9,11 +9,16 @@
 
 	<!-- Player start -->
 
-	<div th:if="${player} != null and ${player.name} != null">
-	Joueur: <span th:text="${player.name}">Bob le player</span>
+	<div th:if="${player.name} != null">
+		Joueur: <span th:text="${player.name}">Bob le player</span>
+		<div>
+			<form action="/jeux/jeudupendu/game" method="post">
+				<input type="submit" name="submit" value="Nouvelle partie" />
+			</form>
+		</div>
 	</div>
 
-	<div th:if="${player} == null or ${player.name} == null">
+	<div th:if="${player.name} == null">
 		<form action="/jeux/jeudupendu/player" method="post">
 			Votre pseudo: <input type="text" name="name" />
 			<input type="submit" name="submit" value="Jouer" />
@@ -22,6 +27,11 @@
 
 	<!-- Player end -->
 
+	<div th:if="${game.getState()} != null">
+		<div>
+			Game state: <p th:text="${game.getState()}"></p>
+		</div>
+	</div>
 
   </body>
 </html>
