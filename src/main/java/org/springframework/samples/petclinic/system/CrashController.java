@@ -31,8 +31,10 @@ class CrashController {
 
     @RequestMapping(value = "/oups", method = RequestMethod.GET)
     public String triggerException() {
+    	
         throw new RuntimeException(
-                "Expected: controller used to showcase what " + "happens when an exception is thrown");
+                "Expected: controller used to showcase what "
+                		+ "happens when an exception is thrown");
     }
 
 }

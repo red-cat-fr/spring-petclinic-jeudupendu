@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+  <body>
+
+    <h2 th:text="${welcome} + ' ' + ${name}"> Bonjour machin truc </h2>
+
+	<p>Connaissez-vous :</p>
+	<ul>
+	<li>Prénom: <span th:text="${person.firstname}"></span></li>
+	<li>Nom: <span th:text="${person.lastname}"></span></li>
+	</ul>
+
+  </body>
+</html>

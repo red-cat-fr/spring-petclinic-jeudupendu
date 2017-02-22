@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<body>
+
+	<h1>Form01 </h1>
+	
+	<p>call #<span th:text="${counter?.getCount()}"></span></p>
+
+	<form action="/essais/form01v2" method="post" >
+		<div>
+			name: <input type="text" name="name" th:value="${person?.name}" />
+			<th:block th:if="${result?.hasFieldErrors('name')}">
+				<span th:text="${result.getFieldError('name').getDefaultMessage()}">error message</span>
+			</th:block>
+		</div>
+		<div>
+			tél: <input type="text" name="phone" th:value="${person?.phone}"  />
+			<th:block th:if="${result?.hasFieldErrors('phone')}">
+				<span th:text="${result.getFieldError('phone').getDefaultMessage()}">error message</span>
+			</th:block>
+		</div>
+		<div>
+			genre:
+			Homme <input type="radio" name="gender" value="1" />
+			Femme <input type="radio" name="gender" value="2" />
+			Secret <input type="radio" name="gender" value="3" />
+		</div>
+		<div>
+			loisirs:
+			Piscine <input type="checkbox" name="hobbies" value="1" />
+			Course à pied <input type="checkbox" name="hobbies" value="2" />
+			Équitation <input type="checkbox" name="hobbies" value="3" />
+			Lecture <input type="checkbox" name="hobbies" value="4" />
+			Glande <input type="checkbox" name="hobbies" value="5" />
+		</div>
+		<div>
+			<input type="submit" name="submit" value="Envoyer" />
+		</div>
+	</form>
+
+</body>
+</html>
