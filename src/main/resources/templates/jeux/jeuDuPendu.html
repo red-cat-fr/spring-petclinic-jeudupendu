@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+  <body>
+
+    <h2>Jeu du Pendu</h2>
+
+	<!-- Player start -->
+
+	<div th:if="${player} != null">
+	Joueur: <span th:text="${player.name}">Bob le player</span>
+	</div>
+
+	<div th:if="${player} == null">
+		<form>
+			Votre pseudo: <input type="text" name="" />
+			<input type="submit" name="submit" value="Jouer" />
+		</form>
+	</div>
+
+	<!-- Player end -->
+
+
+  </body>
+</html>
