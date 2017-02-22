@@ -31,6 +31,10 @@
 		<div>
 			Game state: <p th:text="${game.getState()}"></p>
 		</div>
+		<form action="/jeux/jeudupendu/play" method="post">
+			Une lettre: <input type="text" name="proposal" />
+			<input type="submit" name="submit" value="Proposer" />
+		</form>
 	</div>
 
   </body>

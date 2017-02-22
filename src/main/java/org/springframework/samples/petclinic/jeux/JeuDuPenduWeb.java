@@ -46,4 +46,13 @@ public class JeuDuPenduWeb {
 		return "redirect:/jeux/jeudupendu" ;
 	}
 
+	@RequestMapping(value="/play", method=RequestMethod.POST)
+	public String playNext( ModelMap model, @RequestParam String proposal )
+	{
+		player.setPlay( proposal );
+		game.nextPlay();
+
+		return "redirect:/jeux/jeudupendu" ;
+	}
+
 }

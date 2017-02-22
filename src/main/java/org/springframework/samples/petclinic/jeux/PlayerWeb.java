@@ -6,11 +6,17 @@ import v2.Saisie;
 public class PlayerWeb implements Player {
 
 	String name ;
+	String proposal ;
+	
+	public void setPlay(String proposal)
+	{
+		this.proposal = proposal ;
+	}
 	
 	@Override
 	public String getPlay() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return proposal;
 	}
 
 	@Override
