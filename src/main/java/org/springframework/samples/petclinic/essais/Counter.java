@@ -1,17 +1,14 @@
 package org.springframework.samples.petclinic.essais;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("session")
+// Cette configuration a été déplacée dans la classe CounterConfiguration
+// @Component
+// @Scope("session")
 public class Counter {
 
 	public Counter()
 	{
-		
 	}
-	
+
 	int count ;
 
 	public int getCount() {
