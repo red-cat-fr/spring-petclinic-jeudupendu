@@ -29,7 +29,8 @@ public class JeuDuPenduWeb {
 	public String playerSet( ModelMap model, @RequestParam String name )
 	{
 		player.setName(name);
-		return "forward:/jeux/jeudupendu" ;
+		
+		return "redirect:/jeux/jeudupendu" ;
 	}
 
 }
