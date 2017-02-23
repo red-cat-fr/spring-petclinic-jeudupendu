@@ -2,13 +2,16 @@ package org.springframework.samples.petclinic.jeux;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.samples.petclinic.vet.Vets;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import v2.GameState;
 import v2.Partie;
 
 @Controller
@@ -63,5 +66,11 @@ public class JeuDuPenduWeb {
 
 		return "redirect:/jeux/jeudupendu" ;
 	}
+
+    @RequestMapping(value = { "/game.json", "/game.xml" })
+    public @ResponseBody GameState gameState() {
+
+        return game.getState();
+    }
 
 }

@@ -27,6 +27,8 @@
 
 	<!-- Player end -->
 
+	<!-- Game start -->
+
 	<div th:if="${game.getState()} != null">
 		<div>
 			Game state: <p th:text="${game.getState()}"></p>
@@ -36,6 +38,25 @@
 			<input type="submit" name="submit" value="Proposer" />
 		</form>
 	</div>
+
+	<div id="gameDisplay">
+	</div>
+
+	<!-- Game end -->
+
+	<script>
+/*
+	$(function(){
+
+		setTimeout( function() {
+			$.getJSON( "/jeux/jeudupendu/game.json", function( data ) {
+				console.log( data );
+			} );
+		}, 1000 );
+
+	});
+*/
+	</script>
 
   </body>
 </html>
