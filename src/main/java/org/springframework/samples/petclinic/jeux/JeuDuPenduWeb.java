@@ -67,6 +67,14 @@ public class JeuDuPenduWeb {
 		return "redirect:/jeux/jeudupendu" ;
 	}
 
+	/**
+	 * 
+	 * Pour le "game.xml" il a fallu ajouter l'annotation @XmlRootElement
+	 * sur le classe GameStateDuPendu.
+	 * Mais rien à spécifier pour "game.json".
+	 * 
+	 * @return
+	 */
     @RequestMapping(value = { "/game.json", "/game.xml" })
     public @ResponseBody GameState gameState() {
 
